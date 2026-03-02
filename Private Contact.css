@@ -1,0 +1,285 @@
+/* ============================= */
+/* RESET BÁSICO */
+/* ============================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+    background:#0f0f14;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+}
+
+main{
+    flex:1;
+}
+
+/* ============ HEADER VIDEO ============= */
+
+.header-video{
+    position:relative;
+    height:60vh;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.video-bg{
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transform:translate(-50%,-50%);
+    z-index:-2;
+}
+
+.overlay{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:linear-gradient(to bottom, rgba(10,10,15,0.6), rgba(10,10,15,0.9));
+    z-index:-1;
+}
+
+.header-content{
+    width:90%;
+    max-width:1400px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:auto;
+}
+
+.logo img {
+  height: 250px;   /* ajusta según tu diseño */
+  width: auto;
+  display: block;
+}
+
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:35px;
+}
+
+.nav-link{
+  color:white;
+  text-decoration:none;
+  text-transform:uppercase;
+  font-size:13px;
+  letter-spacing:2px;
+  position:relative;
+  transition:0.3s;
+}
+
+.nav-link::after{
+  content:"";
+  position:absolute;
+  bottom:-6px;
+  left:0;
+  width:0;
+  height:2px;
+  background:#b48a4a;
+  transition:0.3s ease;
+}
+
+.nav-link:hover::after{
+  width:100%;
+}
+
+.nav-link:hover{
+  color:#b48a4a;
+}
+
+.nav-link.active{
+  color:#b48a4a;
+}
+
+.nav-link.active::after{
+  width:100%;
+}
+
+/* ============================= */
+/* CONTACT SECTION */
+/* ============================= */
+
+.contact-section{
+    padding:100px 0;
+    background:linear-gradient(135deg,#141414,#1b1b1f);
+}
+
+.contact-container{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between; /* separa info y form */
+    align-items:flex-start;        /* los alinea arriba */
+    gap:80px;                      /* espacio entre columnas */
+    padding:0 20px;
+}
+
+/* INFO */
+
+.contact-info{
+    flex:1;
+}
+
+.contact-info h2{
+    font-size:40px;
+    font-weight:300;
+    letter-spacing:3px;
+    margin-bottom:25px;
+}
+
+.contact-info p{
+    opacity:0.8;
+    margin-bottom:30px;
+    line-height:1.6;
+}
+
+.info-item{
+    margin-bottom:25px;
+}
+
+.info-item h4{
+    color:#d4af37;
+    margin-bottom:5px;
+    letter-spacing:2px;
+    font-weight:400;
+}
+
+/* FORM */
+
+/* CAJA DEL FORMULARIO */
+.contact-form{
+    flex:1;
+    background:rgba(255,255,255,0.03);
+    padding:50px;
+    border:1px solid rgba(212,175,55,0.2);
+    backdrop-filter:blur(10px);
+    display:flex;
+}
+
+/* ORGANIZACIÓN INTERNA */
+.contact-form form{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+    width:100%;
+}
+
+.form-group label{
+    display:block;
+    font-size:13px;
+    margin-bottom:6px;
+    letter-spacing:1px;
+}
+
+.form-group input,
+.form-group textarea{
+    width:100%;
+    padding:12px;
+    background:#1a1a20;
+    border:1px solid rgba(255,255,255,0.1);
+    color:white;
+    outline:none;
+    transition:0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+    border-color:#d4af37;
+}
+
+/* BOTÓN */
+
+.btn-submit{
+    width:100%;
+    padding:14px;
+    background:transparent;
+    border:1px solid #d4af37;
+    color:#d4af37;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    cursor:pointer;
+    transition:0.4s ease;
+}
+
+.btn-submit:hover{
+    background:#d4af37;
+    color:#1e1e2b;
+}
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+.section {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+.section:nth-of-type(1) {
+  animation-delay: 0.2s;
+}
+.section:nth-of-type(2) {
+  animation-delay: 0.6s;
+}
+.section:nth-of-type(3) {
+  animation-delay: 1s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================= */
+/* FOOTER */
+/* ============================= */
+
+.footer{
+    background:#0c0c11;
+    padding:30px 0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:13px;
+    letter-spacing:1px;
+    opacity:0.7;
+}
+
+/* =============================
+ RESPONSIVE 
+ ============================= */
+
+@media (max-width:900px){
+
+    .contact-container{
+        flex-direction:column;
+    }
+
+    .header-content{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+}

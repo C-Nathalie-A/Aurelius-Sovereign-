@@ -1,0 +1,165 @@
+/* ================= VARIABLES ================= */
+:root {
+    --gold: #b48a4a;
+    --gold-light: #d4af37;
+    --white: #ffffff;
+    --dark-overlay: rgba(0, 0, 0, 0.55);
+    --font-main: 'Inter', sans-serif;
+    --font-title: 'Playfair Display', serif;
+}
+
+/* ================= RESET & BASE ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: #000; /* Fondo base negro para evitar destellos blancos */
+    color: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ================= HEADER ================= */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 2rem;
+    /* Efecto de cristal esmerilado opcional */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4), transparent);
+    transition: background 0.3s ease;
+}
+
+.logo img {
+    height: clamp(80px, 15vh, 160px); /* Tamaño fluido según pantalla */
+    width: auto;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    transition: transform 0.4s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.02);
+}
+
+/* ================= HERO CON VIDEO ================= */
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--dark-overlay);
+}
+
+/* ================= CONTENIDO HERO ================= */
+.hero-content {
+    padding: 0 20px;
+    z-index: 2;
+    max-width: 1000px;
+}
+
+.hero-content h1 {
+    font-family: var(--font-title);
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 400;
+    letter-spacing: 4px;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* ================= BOTONES ================= */
+.glow-btn {
+    padding: 1.2rem 3rem;
+    border-radius: 2px; /* Bordes más rectos para look más premium */
+    cursor: pointer;
+    border: 1px solid var(--gold);
+    background-color: transparent;
+    color: var(--white);
+    font-family: var(--font-main);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.glow-btn:hover {
+    background-color: var(--gold);
+    color: #000;
+    box-shadow: 0 0 25px rgba(180, 138, 74, 0.4);
+    transform: translateY(-3px);
+}
+
+.glow-btn:active {
+    transform: translateY(0);
+}
+
+/* ================= ANIMACIONES SUTILES ================= */
+.fade-in {
+    animation: fadeInUp 1.2s ease forwards;
+}
+
+.fade-in-delayed {
+    opacity: 0;
+    animation: fadeInUp 1.2s ease 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive para tablets/móviles */
+@media (max-width: 768px) {
+    .logo img { height: 100px; }
+    .hero-content h1 { letter-spacing: 2px; }
+}
